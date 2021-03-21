@@ -11,9 +11,10 @@ class DeviseCreateLawyers < ActiveRecord::Migration[6.1]
       t.string :nickname, null: false, default: ""
       t.integer :telephone_number, null: false, default: "0000000000"
       t.text :address, null: false, default: ""
-      t.string :lawyer_number, null: false, default: "0000000000"
+      t.string :lawyer_id, null: false, default: "0000000000"
       t.text :university, null: false, default: ""
       t.text :description, null: false, default: ""
+      t.boolean :verified, null: false, default: false
 
       ## Recoverable
       t.string   :reset_password_token

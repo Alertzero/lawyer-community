@@ -11,15 +11,16 @@
 #  first_name             :string           default(""), not null
 #  last_name              :string           default(""), not null
 #  last_sign_in_at        :datetime
-#  lawyer_number          :string           default("0000000000"), not null
 #  nickname               :string           default(""), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  telephone_number       :integer          default(0), not null
 #  university             :text             default(""), not null
+#  verified               :boolean          default(FALSE), not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  lawyer_id              :string           default("0000000000"), not null
 #
 # Indexes
 #

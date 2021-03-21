@@ -12,7 +12,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    
+     <%= link_to "ค้นหาทนายความในประเทศไทยไม่มีค่าใช้จ่าย", root_path, class: 'navbar-brand text-black'%>
 
         <% if client_signed_in? %>
             <ul class="navbar-nav ml-auto">
@@ -44,14 +44,14 @@
             </div>
           </div>
           
-         <% elsif lawyer_signed_in? || admin_signed_in? %>
+         <% elsif lawyer_signed_in? %>
           
             <ul class="navbar-nav ml-auto">
              <li class="nav-item">
-              <%= link_to "ตั้งกระทู้สอบถาม", "#", class: "btn  btn-xs mr-1"%>
+              <%= link_to "คำถามกฎหมาย", "#", class: "btn  btn-xs mr-1"%>
             </li>
             <li class="nav-item">
-              <%= link_to "หาทนายทำคดี", "#", class: "btn  btn-xs mr-1"%>
+              <%= link_to "คำร้องหาทนายทำคดี", "#", class: "btn  btn-xs mr-1"%>
             </li>
               <li class="nav-item">
               <%= link_to "ค้นหาทนายความ", "#", class: "btn  btn-xs mr-1"%>
@@ -59,7 +59,7 @@
           
           <div class="dropdown">
             <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_client.email %>
+              <%= current_lawyer.email %>
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
               <%= link_to "#", class: "dropdown-item" do %>
@@ -68,7 +68,7 @@
               <%= link_to "#", class: "dropdown-item" do%>
                 <%= fa_icon 'edit'%> ตั้งค่า
               <% end %>
-              <%= link_to "#", class: "dropdown-item", method: :delete do%>
+              <%= link_to destroy_lawyer_session_path, class: "dropdown-item", method: :delete do%>
                 <%= fa_icon 'sign-out'%> ออกจากระบบ
               <% end %>
             </div>
@@ -78,18 +78,18 @@
           
             <ul class="navbar-nav ml-auto">
              <li class="nav-item">
-              <%= link_to "ตั้งกระทู้สอบถาม", "#", class: "btn  btn-xs mr-1"%>
+              <%= link_to "ตรวจสอบกระทู้", "#", class: "btn  btn-xs mr-1"%>
             </li>
             <li class="nav-item">
-              <%= link_to "หาทนายทำคดี", "#", class: "btn  btn-xs mr-1"%>
+              <%= link_to "ตรวจสอบคำร้อง", "#", class: "btn  btn-xs mr-1"%>
             </li>
               <li class="nav-item">
-              <%= link_to "ค้นหาทนายความ", "#", class: "btn  btn-xs mr-1"%>
+              <%= link_to "ตรวจสอบการรับทำคดี", "#", class: "btn  btn-xs mr-1"%>
             </li>
           
           <div class="dropdown">
             <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_client.email %>
+              <%= current_admin.email %>
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
               <%= link_to "#", class: "dropdown-item" do %>
@@ -98,7 +98,7 @@
               <%= link_to "#", class: "dropdown-item" do%>
                 <%= fa_icon 'edit'%> ตั้งค่า
               <% end %>
-              <%= link_to "#", class: "dropdown-item", method: :delete do%>
+              <%= link_to destroy_admin_session_path, class: "dropdown-item", method: :delete do%>
                 <%= fa_icon 'sign-out'%> ออกจากระบบ
               <% end %>
             </div>
@@ -106,7 +106,7 @@
         
         <% else%>
         
-        <%= link_to "ค้นหาทนายความมืออาชีพที่จะให้คำปรึกษาทางกฎหมายกับท่าน", root_path, class: 'navbar-brand text-black'%>
+       
           <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <%= link_to "สมัครสมาชิกทั่วไป", new_client_registration_path, class: "btn  btn-xs mr-1 text-black"%>
