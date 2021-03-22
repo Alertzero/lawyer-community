@@ -4,8 +4,8 @@ class DeviseCreateClients < ActiveRecord::Migration[6.1]
   def change
     create_table :clients do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      t.string :email,              null: false
+      t.string :encrypted_password, null: false, default: "test1234"
       t.string :first_name, null: false, default: ""
       t.string :last_name, null: false, default: ""
       t.string :nickname, null: false, default: ""
