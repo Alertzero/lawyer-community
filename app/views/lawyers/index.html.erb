@@ -1,5 +1,59 @@
+
+
 <% provide(:title, 'All lawyers') %>
 <h1>All lawyers</h1>
+
+
+<%= form_with url: "/lawyers", method: :get do |form| %>
+  <%= form.label :search, "Search for:" %>
+  <%= form.text_field :search %>
+  <%= form.submit "Search" %>
+<% end %>
+
+
+
+<ul><% @lawyertachi.each do |lawyer| %>
+  <li>
+    <%= lawyer.first_name %>
+    <%= lawyer.last_name  %>
+    <%= lawyer.address  %>
+  </li>
+  <% end %>
+</ul>
+
+<br>
+<%= link_to "Advanced Search", new_search_path %>
+
+
+<br>
+<%= form_with url: "/lawyers", method: :get do |form| %>
+  <%= form.label :first_name, "Search for:" %>
+  <%= form.text_field :first_name %>
+  <%= form.submit "Search" %>
+<% end %>
+
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lawyers.each do |lawyer| %>
+      <tr>
+        <td><%= lawyer.first_name %></td>
+        <td><%= lawyer.last_name %></td>
+        <td><%= lawyer.address %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
 
 <%= will_paginate %>
 

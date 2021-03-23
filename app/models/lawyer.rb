@@ -33,4 +33,12 @@ class Lawyer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :offers
+
+  def self.search(search)
+    if search
+        where(["first_name LIKE ?","%#{search}%"])
+    else
+        all
+    end
+end 
 end

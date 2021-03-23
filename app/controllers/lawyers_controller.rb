@@ -4,7 +4,13 @@ class LawyersController < ApplicationController
     # GET /categories or /categories.json
     def index
       @lawyers = Lawyer.paginate(page: params[:page])
+      @lawyertachi = Lawyer.search(params[:search])
+     
     end
+
+    
+      
+  
 =begin 
     # GET /categories/1 or /categories/1.json
     def show
