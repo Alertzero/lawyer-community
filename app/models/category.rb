@@ -10,4 +10,6 @@
 #  updated_at  :datetime         not null
 #
 class Category < ApplicationRecord
+    has_many :requests
+    has_many :questions
 end

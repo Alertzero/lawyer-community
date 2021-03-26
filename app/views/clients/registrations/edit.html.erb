@@ -1,35 +1,42 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<h2>แก้ไขข้อมูลการลงทะเบียน</h2>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
-
+      <% if current_client.avatar.attached? %>
+    
+      <%= image_tag current_client.display_avatar, class: "border rounded-circle justify-content-center"%>
+      
+    <% else %>
+      <i class="fas fa-user"></i>
+    <% end %>
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
 
+    <%= f.input :avatar, as: :file%>
+    <%= f.input :email, required: true, autofocus: true %>
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-
     <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
+                hint: "ปล่อยว่างไว้หากไม่ต้องการเปลี่ยนรหัสผ่าน",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :nickname,
+                required: false %>
+    <%= f.input :first_name,
+                required: false %>
+    <%= f.input :last_name,
+                required: false %>
+    <%= f.input :address, as: :select, collection: [ ['กรุงเทพมหานคร', 1], ['นนทบุรี', 2] ],
+                required: false
+                %>
     <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+                hint: "ท่านต้องใส่รหัสผ่านปัจจุบันเพื่อเปลี่ยนแปลงข้อมูลที่ลงทะเบียน",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
   </div>
-
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "ยืนยันการแก้ไข", class: 'btn btn-primary' %>
   </div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>

@@ -1,0 +1,22 @@
+  <% questions.each do |question|%>
+  <div class="row">
+    <div class="col-11">
+      <div class="card mb-3">
+        <div class="card-header">
+          <%= link_to question.title , class: "text-xl mb-1" %>
+          <small class="font-weight-bold ml-auto"> ตั้งโดย 
+          <% if question.client.nickname%>
+          <%= question.client.nickname %>
+          <%else%>
+<%= question.client.email%>
+<%end%>
+          เมื่อ <%= question.created_at %> </small>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><%= truncate question.body, length: 200 %></p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+<% end %>

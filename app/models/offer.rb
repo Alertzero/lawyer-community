@@ -23,4 +23,5 @@
 class Offer < ApplicationRecord
   belongs_to :request
   belongs_to :lawyer
+  has_rich_text :content
 end

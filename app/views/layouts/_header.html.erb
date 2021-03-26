@@ -18,10 +18,10 @@
             <ul class="navbar-nav ml-auto">
           
              <li class="nav-item">
-              <%= link_to "ตั้งกระทู้สอบถาม", "#", class: "btn  btn-xs mr-1"%>
+              <%= link_to "ตั้งกระทู้สอบถาม", new_question_path, class: "btn  btn-xs mr-1"%>
             </li>
             <li class="nav-item">
-              <%= link_to "หาทนายทำคดี", "#", class: "btn  btn-xs mr-1"%>
+              <%= link_to "หาทนายทำคดี", new_request_path, class: "btn  btn-xs mr-1"%>
             </li>
               <li class="nav-item">
               <%= link_to "ค้นหาทนายความ", lawyers_path, class: "btn  btn-xs mr-1"%>
@@ -35,7 +35,7 @@
               <%= link_to "#", class: "dropdown-item" do %>
                 <%= fa_icon 'user'%> ข้อมูลส่วนบุคคล
               <% end %>
-              <%= link_to "#", class: "dropdown-item" do%>
+              <%= link_to edit_client_registration_path, class: "dropdown-item" do%>
                 <%= fa_icon 'edit'%> ตั้งค่า
               <% end %>
               <%= link_to destroy_client_session_path, class: "dropdown-item", method: :delete do%>
@@ -48,10 +48,10 @@
           
             <ul class="navbar-nav ml-auto">
              <li class="nav-item">
-              <%= link_to "คำถามกฎหมาย", "#", class: "btn  btn-xs mr-1"%>
+              <%= link_to "ตรวจดูคำถามกฎหมาย", "#", class: "btn  btn-xs mr-1"%>
             </li>
             <li class="nav-item">
-              <%= link_to "คำร้องหาทนายทำคดี", "#", class: "btn  btn-xs mr-1"%>
+              <%= link_to "ตรวจดูคำร้องหาทนายทำคดี", "#", class: "btn  btn-xs mr-1"%>
             </li>
               <li class="nav-item">
               <%= link_to "ค้นหาทนายความ", lawyers_path, class: "btn  btn-xs mr-1"%>
@@ -65,7 +65,7 @@
               <%= link_to "#", class: "dropdown-item" do %>
                 <%= fa_icon 'user'%> ข้อมูลส่วนบุคคล
               <% end %>
-              <%= link_to "#", class: "dropdown-item" do%>
+              <%= link_to edit_lawyer_registration_path, class: "dropdown-item" do%>
                 <%= fa_icon 'edit'%> ตั้งค่า
               <% end %>
               <%= link_to destroy_lawyer_session_path, class: "dropdown-item", method: :delete do%>

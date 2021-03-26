@@ -5,13 +5,13 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
-    <%= f.input :body %>
+    <%= f.rich_text_area :body %>
     <%= f.association :category %>
-    <%= f.association :client %>
+    <%= f.association :client, :as => :hidden, :input_html => { :value => current_client.id }  %>  
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
   </div>
 <% end %>
 

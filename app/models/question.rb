@@ -23,4 +23,5 @@
 class Question < ApplicationRecord
   belongs_to :category
   belongs_to :client
+  has_rich_text :content
 end

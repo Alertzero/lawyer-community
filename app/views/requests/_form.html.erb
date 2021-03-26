@@ -7,7 +7,7 @@
     <%= f.input :title %>
     <%= f.input :body %>
     <%= f.association :category %>
-    <%= f.association :clients %>
+    <%= f.association :client, :as => :hidden, :input_html => { :value => current_client.id }  %>
   </div>
 
   <div class="form-actions">

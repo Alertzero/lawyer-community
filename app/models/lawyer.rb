@@ -36,7 +36,7 @@ class Lawyer < ApplicationRecord
 
   def self.search(search)
     if search
-        where(["first_name LIKE ?","%#{search}%"])
+        where(["lower(first_name) LIKE ?","%#{search.downcase}%"])
     else
         all
     end
