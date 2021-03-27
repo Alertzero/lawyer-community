@@ -21,6 +21,8 @@ Client.create(email: 'test@test.com', password: 'test1234')
         )
 end
 
+
+
 100.times do
     Lawyer.create(
         email: Faker::Internet.email, 
@@ -30,4 +32,6 @@ end
         nickname: Faker::Name.unique.name,
         address: Faker::Address.city
         )
+
+        
 end

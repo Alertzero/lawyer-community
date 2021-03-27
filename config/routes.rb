@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :advices
+  resources :comments
   resources :offers
   resources :requests
   resources :questions

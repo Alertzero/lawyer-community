@@ -12,10 +12,11 @@
  *= require font-awesome
  *= require_tree .
  *= require_self
+ *= require actiontext
  */
  @import "./actiontext.scss";
  @import "bootstrap/scss/bootstrap";
-
+ @import "trix/dist/trix";
  html {
     position: relative;
     min-height: 100%;

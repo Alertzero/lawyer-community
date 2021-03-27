@@ -23,5 +23,7 @@
 class Question < ApplicationRecord
   belongs_to :category
   belongs_to :client
+  has_many :comments
+  has_many :advices
   has_rich_text :content
 end

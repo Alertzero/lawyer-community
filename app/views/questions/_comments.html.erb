@@ -1,0 +1,14 @@
+<% comments.each do |comment|%>
+<div class="card mb-3">
+  <div class="card-header">
+    <% if comment.client.nickname%>
+    <%= comment.account.username %>
+    <% else %>
+    <%= ผู้ใช้ที่ไม่มีชื่อ %>
+    <% end %>
+  </div>
+  <div class="card-body">
+    <%= comment.message %>
+  </div>
+</div>
+<% end %>
