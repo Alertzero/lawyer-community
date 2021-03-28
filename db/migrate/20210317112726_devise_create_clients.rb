@@ -5,12 +5,12 @@ class DeviseCreateClients < ActiveRecord::Migration[6.1]
     create_table :clients do |t|
       ## Database authenticatable
       t.string :email,              null: false
-      t.string :encrypted_password, null: false, default: "test1234"
-      t.string :first_name, null: false, default: ""
-      t.string :last_name, null: false, default: ""
-      t.string :nickname, null: false, default: ""
-      t.integer :telephone_number, null: false, default: "0000000000"
-      t.text :address, null: false, default: ""
+      t.string :encrypted_password, null: false
+      t.string :first_name, null: false
+      t.string :last_name, null: false
+      t.string :nickname, null: false
+      t.integer :phone_no, null: false
+      t.text :province, null: false
     
 
       ## Recoverable

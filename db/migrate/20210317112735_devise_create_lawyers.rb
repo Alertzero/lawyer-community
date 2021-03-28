@@ -4,16 +4,16 @@ class DeviseCreateLawyers < ActiveRecord::Migration[6.1]
   def change
     create_table :lawyers do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
-      t.string :first_name, null: false, default: ""
-      t.string :last_name, null: false, default: ""
-      t.string :nickname, null: false, default: ""
-      t.integer :telephone_number, null: false, default: "0000000000"
-      t.text :address, null: false, default: ""
-      t.string :lawyer_id, null: false, default: "0000000000"
-      t.text :university, null: false, default: ""
-      t.text :description, null: false, default: ""
+      t.string :email,              null: false
+      t.string :encrypted_password, null: false
+      t.string :first_name, null: false
+      t.string :last_name, null: false
+      t.string :nickname, null: false
+      t.string :phone_no, null: false
+      t.text :province, null: false
+      t.string :lawyer_id, null: false
+      t.text :university
+      t.text :description
       t.boolean :verified, null: false, default: false
 
       ## Recoverable

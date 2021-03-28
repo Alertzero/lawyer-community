@@ -15,7 +15,7 @@
         </div>
         </div>
         <div class="card-body">
-          <p class="card-text"><%= truncate question.body, length: 200 %></p>
+          <p class="card-text"><%= truncate question.body.html_safe, length: 200 %></p>
         </div>
       </div>
     </div>

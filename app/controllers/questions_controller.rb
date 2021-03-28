@@ -4,13 +4,15 @@ class QuestionsController < ApplicationController
 
   # GET /questions or /questions.json
   def index
-    @questions = Question.includes(:categories, :clients).all
+    
+    @questions = Question.includes(:categories, :clients, :comments)
   end
 
   # GET /questions/1 or /questions/1.json
   def show
     set_question
     @comment = Comment.new
+    @comments = Comment.includes(:client)
   end
 
   # GET /questions/new
@@ -62,7 +64,7 @@ class QuestionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
-      @question = Question.includes(:comments, :advices).find(params[:id])
+      @question = Question.includes(:client, :comments, :advices).find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

@@ -23,10 +23,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
 
+
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: "Comment was successfully created." }
-        format.json { render :show, status: :created, location: @comment }
+        format.html { redirect_to question_path(@comment.question_id), notice: "Comment was successfully created." }
+        format.json { render :show, status: :created, location: question_path(@comment.question_id) }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -59,7 +60,7 @@ class CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @comment = Comment.find(params[:id])
+      @comment = Comment.includes([:client]).find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

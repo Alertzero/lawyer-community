@@ -6,13 +6,13 @@
         <%= @question.title %>
       </div>
       <div class="card-body">
-        <%= @question.body %>
+        <%= @question.body.html_safe %>
       </div>
     </div>
   </div>
 </div>
 <div class="mb-3">
-  <%= render "questions/comments", comments: @question.comments%>
+  <%= render "questions/comments", comments: @comments%>
 </div>
 <%= form_for @comment, remote: true do |form|%>
   <%= form.hidden_field :question_id, value: @question.id%>

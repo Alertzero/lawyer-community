@@ -5,6 +5,7 @@ class CreateRequests < ActiveRecord::Migration[6.1]
       t.text :body
       t.references :category, null: false, foreign_key: true
       t.references :client, null: false, foreign_key: true
+      t.boolean :solved, default: false
 
       t.timestamps
     end

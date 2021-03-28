@@ -5,7 +5,7 @@
 #  id          :bigint           not null, primary key
 #  description :text
 #  display     :boolean
-#  name        :string
+#  subject     :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
