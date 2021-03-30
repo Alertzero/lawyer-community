@@ -22,4 +22,5 @@
 class Advice < ApplicationRecord
   belongs_to :question
   belongs_to :lawyer
+  has_many :comments
 end

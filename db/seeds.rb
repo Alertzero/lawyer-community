@@ -6,14 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Admin.create(email: 'alert@alert.com', password: 'test1234')
-Client.create(email: 'test@test.com', password: 'test1234', nickname: 'Alert', first_name: 'Kridchanok', last_name: 'Rowsathien', province: 'กรุงเทพมหานคร', phone_no: Faker::PhoneNumber.phone_number)
+Admin.create(email: 'alert@admin.com', password: 'test1234')
+Client.create(email: 'alert@client.com', password: 'test1234', nickname: 'Alert', first_name: 'Kridchanok', last_name: 'Rowsathien', province: 'กรุงเทพมหานคร', phone_no: Faker::PhoneNumber.phone_number)
+Lawyer.create(email: 'alert@lawyer.com', password: 'test1234', nickname: 'Alert', first_name: 'Kridchanok', last_name: 'Rowsathien', province: 'กรุงเทพมหานคร', phone_no: Faker::PhoneNumber.phone_number, lawyer_id: Faker::PhoneNumber.phone_number)
 Category.create(subject: 'ปัญหาครอบครัว')
 Category.create(subject: 'หนี้เงินกู้')
 Category.create(subject: 'อินเทอร์เน็ต')
 Category.create(subject: 'มรดก')
 Category.create(subject: 'แรงงาน')
 Category.create(subject: 'อาชญากรรม')
+Question.create(title: 'Help me im going to be jailed', body: 'help me please', category_id: 1, client_id: 1)
+Advice.create(message: 'Explain more idiot', question_id: 1, lawyer_id: 1)
+Comment.create(message: 'No', question_id: 1, client_id: 1, advice_id: 1)
 
 10.times do
     Client.create(

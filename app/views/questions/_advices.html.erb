@@ -1,0 +1,15 @@
+<% advices.each do |advice|%>
+<div class="card mb-3">
+  <div class="card-header bg-warning">
+    <%= advice.lawyer.first_name %>
+  </div>
+  <div class="card-body">
+    <%= advice.message.html_safe %>
+  </div>
+</div>
+
+<div class="mb-3">
+  <%= render "questions/comments", comments: advice.comments%>
+</div>
+
+<% end %>

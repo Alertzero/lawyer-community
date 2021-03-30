@@ -1,7 +1,7 @@
 <% comments.each do |comment|%>
 <div class="card mb-3">
-  <div class="card-header">
-    <%= comment.client.nickname %>
+  <div class="card-header" style="background-color: #efe5d9;">
+    <%= 'เจ้าของคำถาม' %>
   </div>
   <div class="card-body">
     <%= comment.message.html_safe %>

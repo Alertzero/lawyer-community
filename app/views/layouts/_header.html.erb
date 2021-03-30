@@ -12,8 +12,10 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-     <%= link_to "ค้นหาทนายความในประเทศไทยไม่มีค่าใช้จ่าย", root_path, class: 'navbar-brand text-black'%>
 
+    <% if !(client_signed_in? || lawyer_signed_in? || admin_signed_in?) %>
+     <%= link_to "ค้นหาทนายความในประเทศไทยไม่มีค่าใช้จ่าย", root_path, class: 'navbar-brand text-black'%>
+     <% end %>
         <% if client_signed_in? %>
             <ul class="navbar-nav ml-auto">
           

@@ -12,7 +12,7 @@ class DeviseCreateLawyers < ActiveRecord::Migration[6.1]
       t.string :phone_no, null: false
       t.text :province, null: false
       t.string :lawyer_id, null: false
-      t.text :university
+      t.string :university
       t.text :description
       t.boolean :verified, null: false, default: false
 

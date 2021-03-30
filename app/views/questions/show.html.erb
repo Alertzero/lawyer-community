@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-12">
     <div class="card mb-3">
-      <div class="card-header bg-warning font-weight-bold">
+      <div class="card-header font-weight-bold" style="background-color: #efe5d9;">
         <%= @question.title %>
       </div>
       <div class="card-body">
@@ -11,12 +11,17 @@
     </div>
   </div>
 </div>
+
+
 <div class="mb-3">
-  <%= render "questions/comments", comments: @comments%>
+  <%= render "questions/advices", advices: @advices%>
 </div>
+
+<% if client_signed_in? && @question.client.id == current_client.id %>
 <%= form_for @comment, remote: true do |form|%>
   <%= form.hidden_field :question_id, value: @question.id%>
   <%= form.hidden_field :client_id, value: @question.client.id%>
+  <%= form.hidden_field :advice_id, value: @question.advice.id%>
   <div class="card mb-3">
     <div class="card-header">
       <%= form.label :message, "ความคิดเห็น" %>
@@ -29,7 +34,25 @@
     </div>
   </div>
 <% end %>
+<% end %>
 
+<% if lawyer_signed_in? %>
+<%= form_for @advice, remote: true do |form|%>
+  <%= form.hidden_field :question_id, value: @question.id%>
+  <%= form.hidden_field :lawyer_id, value: current_lawyer.id%>
+  <div class="card mb-3">
+    <div class="card-header">
+      <%= form.label :message, "ความคิดเห็น" %>
+    </div>
+    <div class="card-body">
+      <%= form.rich_text_area :message, class: "form-control"%>
+    </div>
+    <div class="card-footer">
+      <%= form.submit "ส่งความคิดเห็น", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>

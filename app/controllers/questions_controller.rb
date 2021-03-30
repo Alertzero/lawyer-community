@@ -5,13 +5,15 @@ class QuestionsController < ApplicationController
   # GET /questions or /questions.json
   def index
     
-    @questions = Question.includes(:categories, :clients, :comments)
+    @questions = Question.includes(:categories, :clients, :comments, :lawyers)
   end
 
   # GET /questions/1 or /questions/1.json
   def show
     set_question
     @comment = Comment.new
+    @advice = Advice.new
+    @advices = Advice.includes(:lawyer)
     @comments = Comment.includes(:client)
   end
 

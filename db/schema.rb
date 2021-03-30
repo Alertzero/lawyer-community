@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_27_073859) do
+ActiveRecord::Schema.define(version: 2021_03_27_073824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,8 +106,10 @@ ActiveRecord::Schema.define(version: 2021_03_27_073859) do
     t.text "message"
     t.bigint "question_id", null: false
     t.bigint "client_id", null: false
+    t.bigint "advice_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["advice_id"], name: "index_comments_on_advice_id"
     t.index ["client_id"], name: "index_comments_on_client_id"
     t.index ["question_id"], name: "index_comments_on_question_id"
   end
@@ -121,7 +123,7 @@ ActiveRecord::Schema.define(version: 2021_03_27_073859) do
     t.string "phone_no", null: false
     t.text "province", null: false
     t.string "lawyer_id", null: false
-    t.text "university"
+    t.string "university"
     t.text "description"
     t.boolean "verified", default: false, null: false
     t.string "reset_password_token"
@@ -175,6 +177,7 @@ ActiveRecord::Schema.define(version: 2021_03_27_073859) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "advices", "lawyers"
   add_foreign_key "advices", "questions"
+  add_foreign_key "comments", "advices"
   add_foreign_key "comments", "clients"
   add_foreign_key "comments", "questions"
   add_foreign_key "offers", "lawyers"
